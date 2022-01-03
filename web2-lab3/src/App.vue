@@ -2,7 +2,7 @@
   <div v-if="isAuth">
     <div id="nav">
       <router-link to="/">Home</router-link> |
-      <router-link to="/list">List</router-link> |
+      <router-link to="/list">Shopping list</router-link> |
       <router-link to="/converter">Converter</router-link>
       <div class="ml-5">👥{{ $store.getters.user }}</div>
     </div>

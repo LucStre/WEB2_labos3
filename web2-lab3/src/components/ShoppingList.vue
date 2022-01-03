@@ -6,16 +6,16 @@
 import { onMounted, onBeforeUnmount } from "vue";
 
 export default {
-  name: "AboutPage",
+  name: "ShoppingList",
   props: {
     msg: String,
   },
   setup() {
     onMounted(async () => {
-      alert("Welcome to about page!");
+      alert("Welcome to shopping list!");
     });
     onBeforeUnmount(async () => {
-      alert("You are leaving about page, bye-bye!");
+      alert("You are leaving shoping list, bye-bye!");
     });
   },
 };
