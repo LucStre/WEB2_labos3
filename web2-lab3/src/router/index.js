@@ -17,6 +17,12 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
   {
+    path: "/converter",
+    name: "Converter",
+    component: () =>
+      import(/* webpackChunkName: "calculator" */ "../views/Converter.vue"),
+  },
+  {
     path: "/:catchAll(.*)",
     name: "NotFound",
     component: () =>
