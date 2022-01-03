@@ -1,20 +1,17 @@
 <template>
   <div class="about">
-    <h1>About page</h1>
+    <AboutPage msg="Welcome to About Page" />
   </div>
 </template>
 
 <script>
-import { onMounted, onBeforeUnmount } from "vue";
+// @ is an alias to /src
+import AboutPage from "@/components/AboutPage.vue";
 
 export default {
-  setup() {
-    onMounted(async () => {
-      alert("Welcome to about page!");
-    });
-    onBeforeUnmount(async () => {
-      alert("You are leaving about page, bye-bye!");
-    });
+  name: "About",
+  components: {
+    AboutPage,
   },
 };
 </script>
