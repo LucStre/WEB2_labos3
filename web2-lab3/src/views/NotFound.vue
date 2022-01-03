@@ -1,5 +1,3 @@
 <template>
-  <div class="notfound">
-    <h1>Error 404! Not Found!</h1>
-  </div>
+  <h1>Sorry, {{ $route.params.catchAll }} is not found.</h1>
 </template>

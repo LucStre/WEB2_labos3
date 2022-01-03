@@ -17,10 +17,10 @@ const routes = [
       import(/* webpackChunkName: "about" */ "../views/About.vue"),
   },
   {
-    path: "/:pathMatch(.*)*",
+    path: "/:catchAll(.*)",
     name: "NotFound",
     component: () =>
-      import(/* webpackChunkName: "404" */ "../views/NotFound.vue"),
+      import(/* webpackChunkName: "notfound" */ "../views/NotFound.vue"),
   },
 ];
 
