@@ -1,6 +1,6 @@
 <template>
+  <ShoppingList msg="Welcome to shopping list" />
   <div class="list">
-    <ShoppingList msg="Welcome to shopping list" />
     <div v-if="loading">Loading...</div>
     <ul v-else class="shopping-list">
       <h2 v-if="boughtAll">You bought everything from your shopping list!</h2>
@@ -22,18 +22,12 @@
 
 <script>
 // @ is an alias to /src
-import ShoppingList from "@/components/ShoppingList.vue";
-//import ShoppingItem from "@/components/ShoppingItem.vue";
-
-/* interface IItem {
-  id: number;
-  title: string;
-  completed: boolean;
-}
+import ShoppingItem from "@/components/ShoppingItem.vue";
+import { onMounted, onBeforeUnmount } from "vue";
 
 let itemId = 1;
 
-let _items: Array<IItem> = [
+let _items = [
   {
     id: itemId++,
     completed: false,
@@ -44,16 +38,16 @@ let _items: Array<IItem> = [
     completed: true,
     title: "Kruh",
   },
-];*/
+];
 
 export default {
   name: "List",
   components: {
-    ShoppingList,
+    ShoppingItem,
   },
-  /*data() {
+  data() {
     return {
-      items: null as Array<ITodo> | null,
+      items: null,
       loading: true,
       newItem: "",
     };
@@ -62,13 +56,13 @@ export default {
     this.fetchData();
   },
   computed: {
-    boughtAll(): boolean {
+    boughtAll() {
       return !!this.items?.every((item) => item.completed);
     },
   },
   methods: {
     async fetchData() {
-      this.items = await new Promise<Array<IItem>>((resolve) => {
+      this.items = await new Promise((resolve) => {
         setTimeout(() => {
           resolve(_items);
         }, 1000);
@@ -89,9 +83,17 @@ export default {
       });
       this.newItem = "";
     },
-    removeItem(item: IItem) {
-      this.items = this.items?.filter((_item) => item !== _item) || null;
+    removeItem(item) {
+      this.items = this.items?.filter((_item) => item !== _item);
     },
-  },*/
+  },
+  setup() {
+    onMounted(async () => {
+      alert("Welcome to shopping list!");
+    });
+    onBeforeUnmount(async () => {
+      alert("You are leaving shoping list, bye-bye!");
+    });
+  },
 };
 </script>

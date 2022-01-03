@@ -6,16 +6,13 @@
       :checked="completed"
       @input="$emit('update:completed', $event.target.checked)"
     />
-
-    <ShoppingList :title="title" />
-
-    <button class="destroy" @click="$emit('destroy')">❌</button>
+    <ShoppingItemLabel :title="title" />
   </li>
 </template>
 
-<script lang="ts">
+<script>
 import { defineComponent } from "vue";
-import ShoppingList from "@/components/ShoppingList.vue";
+import ShoppingItemLabel from "@/components/ShoppingItemLabel.vue";
 
 export default defineComponent({
   name: "ShoppingItem",
@@ -24,33 +21,8 @@ export default defineComponent({
     title: String,
   },
   components: {
-    ShoppingList,
+    ShoppingItemLabel,
   },
   emits: ["update:completed"],
 });
 </script>
-
-<style scoped>
-.todo-item {
-  padding: 8px;
-  display: flex;
-  align-items: center;
-}
-
-.todo-item label {
-  flex: 1;
-}
-
-.todo-item.completed label {
-  text-decoration: line-through;
-}
-
-.todo-item button {
-  background: none;
-  border: none;
-  color: white;
-  padding: 8px;
-  font-weight: bold;
-  cursor: pointer;
-}
-</style>
